@@ -1,11 +1,11 @@
-# weird_LD06
+# Weird LD06
 
 A small LD06 lidar but its different than other LD06 lidars
 
 ![LD06 Lidar](doc/ld06.jpg)
 
 
-## pinout:
+## Pinout:
 
 ![pinout](doc/ld06_pinout.jpg)
 
@@ -14,9 +14,9 @@ To connect to a pc use a usb to usrt "FTDI" adapter,
 Connect the 'Data out' pin to the RX pin of the FTDI adapter also connect the GND and the 5v,  
 the PWM pin can be connected to ground if the speed you dont need speed control
 
-## protocol:
+## Protocol:
 
-the lidar uses the baudrate of 115200 bps
+The lidar uses the baudrate of 115200 bps
 It send msgs of 36 bytes eatch message contains:
 * Static header, 8 bytes
 * Speed, 2 bytes
@@ -25,8 +25,16 @@ It send msgs of 36 bytes eatch message contains:
 * End angle, 2 bytes
 * Some sort of crc unkown
 
-<0x55><0xAA><0x03><0x08><speed_L><speed_H><start_angle_L><start_angle_H>[8x <distance_L><distance_H><confidence><stop_angle_L><stop_angle_H><CRC?><CRC?>
+(little endian)
 
+```
+<0x55> <0xAA> <0x03> <0x08>
+<speed_L> <speed_H>  
+<start_angle_L> <start_angle_H>  
+8x: <distance_L> <distance_H> <confidence>  
+<stop_angle_L> <stop_angle_H>  
+<CRC?> <CRC?>  
+```
 
 To calculate the angle:  
 ``` c++
@@ -40,5 +48,5 @@ To calculate the angle:
     }
 ```
 
-distance is in millimeters
+Distance is in millimeters
 
