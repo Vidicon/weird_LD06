@@ -4,6 +4,8 @@ A small LD06 lidar but its different than other LD06 lidars
 
 ![LD06 Lidar](doc/ld06.jpg)
 
+## source:
+The lidar seems to be used in the [360 Smart Life S10](https://smart.360.com/robot/s10.html) I found this identical lidar sold as replacement part: [replacment lidar](https://www.ep-mediastore-ab.de/360-s10-mini-lds-lidar-sensor-ld06-p-62332.html)
 
 ## Pinout:
 
